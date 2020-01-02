@@ -1,0 +1,40 @@
+package GetElements;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class GetElements {
+	WebDriver driver;
+	By homePageName = By.xpath("/html/body/div[2]/form[1]/div[1]/h2");
+	By userNameTextField = By.name("email");
+	By passwordTextField = By.name("password");
+	By checkBox = By.xpath("/html/body/div[2]/form[1]/div[1]/div/div[1]/label/div/ins");
+	By loginButton = By.xpath("/html/body/div[2]/form[1]/button");
+	
+	public GetElements(WebDriver driver){
+		this.driver = driver;
+	}
+
+	public String homePagename(){
+		String homePageText = driver.findElement(homePageName).getText();
+		return homePageText;
+	}
+	
+	public void UsernameField(String Username){
+		driver.findElement(userNameTextField).sendKeys(Username);
+	}
+
+	public void PasswordField(String Password) {
+		driver.findElement(passwordTextField).sendKeys(Password);
+	}
+	
+	public void checkBoxButton(){
+		driver.findElement(checkBox).click();
+	}
+	
+	public void LoginButton(){
+		driver.findElement(loginButton).click();
+	}
+	
+}

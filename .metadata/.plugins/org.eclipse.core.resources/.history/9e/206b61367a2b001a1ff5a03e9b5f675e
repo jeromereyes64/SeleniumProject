@@ -1,0 +1,10 @@
+package utils;
+
+import org.openqa.selenium.WebDriver;
+
+import GetElements.GetElements;
+
+public class WaitTime extends GetElements{
+	//GetElements elements = new GetElements(driver);
+	
+}

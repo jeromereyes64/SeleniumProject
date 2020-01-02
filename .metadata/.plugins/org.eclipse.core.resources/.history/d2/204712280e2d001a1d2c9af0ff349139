@@ -1,0 +1,118 @@
+package TestElements;
+import static org.testng.Assert.assertEquals;
+
+import java.io.IOException;
+
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import utils.ExcelDataProvider;
+import utils.GetScreenShot;
+import utils.WaitTime;
+import GetElements.GetElements;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.gherkin.model.And;
+import com.aventstack.extentreports.gherkin.model.Feature;
+import com.aventstack.extentreports.gherkin.model.Given;
+import com.aventstack.extentreports.gherkin.model.Then;
+import com.aventstack.extentreports.gherkin.model.When;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.mongodb.operation.CreateCollectionOperation;
+
+public class TestElements {
+	private static WebDriver driver;
+	private static ExtentReports extent; 
+	private static ExtentHtmlReporter htmlReport;
+	private static ExtentTest test;
+	private static ExtentTest bddTest;
+	private static GetElements getElements;
+	private static GetScreenShot getScreenShot;
+	private static String takeScreenShot;
+
+	@DataProvider(name="setData")
+	public Object[][] getData(){
+		ExcelDataProvider dataProvider = new ExcelDataProvider();
+		return dataProvider.setData("excel/testData.xls","sheet1");
+	}
+
+	@BeforeClass
+	public static void Setup(){	
+		driver = new ChromeDriver();
+		WaitTime wTime = new WaitTime(driver);
+		wTime.implicitWait(15);
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		extent = new ExtentReports();
+		htmlReport = new ExtentHtmlReporter("report.html");
+		extent.attachReporter(htmlReport);
+	}
+
+	@Test(dataProvider="setData", priority = 1, groups = {"regression"})
+	public void TestCase_1(String userName, String passWord) throws IOException{
+		getElements = new GetElements(driver);
+		driver.get("https://www.phptravels.net/admin");
+		getScreenShot = new GetScreenShot();
+		System.out.println(driver.getTitle());
+		takeScreenShot = getScreenShot.screenShot(driver, "Admin Page"); 
+		test = extent.createTest(Feature.class, "BDD Testing - Administrator Page");
+		try {
+			//Assert.assertTrue(homePageText.contains("LOGIN PANEL"));
+			bddTest = test.createNode(Given.class, "User was redirected in demoSite.com").pass("");
+
+			getElements.UsernameField(userName);
+			bddTest.createNode(And.class, "User input valid data in Username Field").pass("");
+
+			getElements.PasswordField(passWord);
+			bddTest.createNode(And.class, "User input valid data in Password Field").pass("");
+
+			getElements.checkBoxButton();
+			bddTest.createNode(And.class,"User click the checkbox").pass("");
+
+			getElements.LoginButton();
+			;bddTest.createNode(When.class, "User clicked the Login Button");
+			test.addScreenCaptureFromPath(takeScreenShot);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getCause() + e.getMessage());
+		}
+	}
+
+	@Test(priority = 4, groups = {"smoke"})
+	public void TestCase_2(){
+
+		driver.get("http://www.tinyupload.com");
+		System.out.println(driver.getTitle()); 
+		test = extent.createTest(Feature.class, "BDD Testing - Tiny Upload Page");
+				try {
+					getElements = new GetElements(driver);
+					getElements.homePageTextField("Automation by Jerome Reyes");
+					bddTest = test.createNode(Given.class,"User was TinyUpload Page and inserted text in Text Field");
+					String actualValue = getElements.fileDesciptorText();
+					assertEquals(actualValue, "Don't close this window until you see upload finish confirmation.");
+					bddTest = test.createNode(Then.class, "Assertion passed");
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+					System.out.println(e.getMessage() + e.getCause());
+				}
+	}
+
+	@Test(priority = 2, groups = {"smoke"})
+	public void TestCase_3(){
+		System.out.println("testcase_3 sussess");
+	}
+
+	@AfterClass
+	public static void quitBrowser(){
+		driver.quit();
+		System.out.println("Test Case Successful");
+		extent.flush();
+	}
+}

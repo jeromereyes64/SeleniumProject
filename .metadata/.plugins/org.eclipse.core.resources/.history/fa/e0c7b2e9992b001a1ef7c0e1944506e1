@@ -1,0 +1,31 @@
+package AutoIT;
+
+import java.io.IOError;
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+import utils.WaitTime;
+
+public class GetElementsAutoIT {
+	@Test
+	public void setup(){
+		try {
+			String file_uploader = "file-uploader";
+			WebDriver driver = new ChromeDriver();
+			driver.get("https://js.devexpress.com/Demos/WidgetsGallery/Demo/FileUploader/FileUploading/jQuery/Light/");
+			WaitTime wTime = new WaitTime(driver);
+			wTime.implicitWait(10);
+			WebElement element = driver.findElement(By.name("uploaded_file"));
+			element.click();
+			//Runtime.getRuntime().exec("D:/Selenium/upload.exe");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage() + e.getCause());
+		}
+	}
+}

@@ -1,0 +1,22 @@
+package utils;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
+public class ExcelTestData {
+
+	public static void main(String[] args) {
+		try {
+		HSSFWorkbook workbook = new HSSFWorkbook("asd");
+		HSSFSheet sheet = workbook.getSheet("Sheet1");
+		int rowsTotal = sheet.getPhysicalNumberOfRows();
+		System.out.println(rowsTotal);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			System.out.println(e.getCause() + e.getMessage());
+		}
+		
+		
+	}
+	
+}

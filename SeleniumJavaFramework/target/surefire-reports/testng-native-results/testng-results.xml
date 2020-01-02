@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="29846" started-at="2020-01-02T11:45:24 SGT" finished-at="2020-01-02T11:45:54 SGT">
+    <groups>
+      <group name="regression">
+        <method signature="TestElements.TestCase_1(java.lang.String, java.lang.String)[pri:1, instance:TestElements.TestElements@6fd02e5]" name="TestCase_1" class="TestElements.TestElements"/>
+      </group> <!-- regression -->
+      <group name="smoke">
+        <method signature="TestElements.TestCase_2()[pri:0, instance:TestElements.TestElements@6fd02e5]" name="TestCase_2" class="TestElements.TestElements"/>
+      </group> <!-- smoke -->
+    </groups>
+    <test name="Surefire test" duration-ms="29846" started-at="2020-01-02T11:45:24 SGT" finished-at="2020-01-02T11:45:54 SGT">
+      <class name="TestElements.TestElements">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:TestElements.TestElements@6fd02e5]" name="Setup" is-config="true" duration-ms="4614" started-at="2020-01-02T11:45:24 SGT" finished-at="2020-01-02T11:45:29 SGT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="TestCase_2()[pri:0, instance:TestElements.TestElements@6fd02e5]" name="TestCase_2" duration-ms="3390" started-at="2020-01-02T11:45:29 SGT" finished-at="2020-01-02T11:45:32 SGT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase_2 -->
+        <test-method status="PASS" signature="TestCase_1(java.lang.String, java.lang.String)[pri:1, instance:TestElements.TestElements@6fd02e5]" name="TestCase_1" duration-ms="7258" started-at="2020-01-02T11:45:33 SGT" data-provider="setData" finished-at="2020-01-02T11:45:40 SGT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[jfreyes]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase_1 -->
+        <test-method status="PASS" signature="TestCase_1(java.lang.String, java.lang.String)[pri:1, instance:TestElements.TestElements@6fd02e5]" name="TestCase_1" duration-ms="5221" started-at="2020-01-02T11:45:40 SGT" data-provider="setData" finished-at="2020-01-02T11:45:46 SGT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[roam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[asd123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase_1 -->
+        <test-method status="PASS" signature="TestCase_1(java.lang.String, java.lang.String)[pri:1, instance:TestElements.TestElements@6fd02e5]" name="TestCase_1" duration-ms="5795" started-at="2020-01-02T11:45:46 SGT" data-provider="setData" finished-at="2020-01-02T11:45:51 SGT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin@phptravels.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[demoadmin]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase_1 -->
+        <test-method status="PASS" signature="quitBrowser()[pri:0, instance:TestElements.TestElements@6fd02e5]" name="quitBrowser" is-config="true" duration-ms="2526" started-at="2020-01-02T11:45:51 SGT" finished-at="2020-01-02T11:45:54 SGT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitBrowser -->
+      </class> <!-- TestElements.TestElements -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

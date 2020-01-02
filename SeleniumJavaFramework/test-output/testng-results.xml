@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="23138" started-at="2020-01-02T04:06:37Z" finished-at="2020-01-02T04:07:00Z">
+    <groups>
+      <group name="regression">
+        <method signature="TestElements.TestCase_1(java.lang.String, java.lang.String)[pri:1, instance:TestElements.TestElements@1a968a59]" name="TestCase_1" class="TestElements.TestElements"/>
+      </group> <!-- regression -->
+      <group name="smoke">
+        <method signature="TestElements.TestCase_2()[pri:0, instance:TestElements.TestElements@1a968a59]" name="TestCase_2" class="TestElements.TestElements"/>
+      </group> <!-- smoke -->
+    </groups>
+    <test name="Default test" duration-ms="23138" started-at="2020-01-02T04:06:37Z" finished-at="2020-01-02T04:07:00Z">
+      <class name="TestElements.TestElements">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:TestElements.TestElements@1a968a59]" name="Setup" is-config="true" duration-ms="4110" started-at="2020-01-02T04:06:37Z" finished-at="2020-01-02T04:06:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="TestCase_2()[pri:0, instance:TestElements.TestElements@1a968a59]" name="TestCase_2" duration-ms="3624" started-at="2020-01-02T04:06:41Z" finished-at="2020-01-02T04:06:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase_2 -->
+        <test-method status="PASS" signature="TestCase_1(java.lang.String, java.lang.String)[pri:1, instance:TestElements.TestElements@1a968a59]" name="TestCase_1" duration-ms="7584" started-at="2020-01-02T04:06:45Z" data-provider="setData" finished-at="2020-01-02T04:06:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[jfreyes]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase_1 -->
+        <test-method status="PASS" signature="TestCase_1(java.lang.String, java.lang.String)[pri:1, instance:TestElements.TestElements@1a968a59]" name="TestCase_1" duration-ms="3103" started-at="2020-01-02T04:06:52Z" data-provider="setData" finished-at="2020-01-02T04:06:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[roam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[asd123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase_1 -->
+        <test-method status="PASS" signature="TestCase_1(java.lang.String, java.lang.String)[pri:1, instance:TestElements.TestElements@1a968a59]" name="TestCase_1" duration-ms="2953" started-at="2020-01-02T04:06:55Z" data-provider="setData" finished-at="2020-01-02T04:06:58Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin@phptravels.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[demoadmin]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase_1 -->
+        <test-method status="PASS" signature="quitBrowser()[pri:0, instance:TestElements.TestElements@1a968a59]" name="quitBrowser" is-config="true" duration-ms="1334" started-at="2020-01-02T04:06:58Z" finished-at="2020-01-02T04:07:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitBrowser -->
+      </class> <!-- TestElements.TestElements -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

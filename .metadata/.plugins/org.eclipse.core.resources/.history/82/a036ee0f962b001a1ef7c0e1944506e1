@@ -1,0 +1,12 @@
+package AutoIT;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class GetElementsAutoIT {
+	
+	public void setup(){
+		WebDriver driver = new ChromeDriver();
+	}
+	
+}

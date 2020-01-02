@@ -1,0 +1,126 @@
+package TestListeners;
+import org.testng.ITestClass;
+import org.testng.ITestContext ;		
+import org.testng.ITestListener ;		
+import org.testng.ITestNGMethod;
+import org.testng.ITestResult ;	
+import org.testng.xml.XmlClass;
+import org.testng.xml.XmlTest;
+
+public class listeners implements ITestClass {
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public XmlTest getXmlTest() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public XmlClass getXmlClass() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getTestName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Class<?> getRealClass() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object[] getInstances(boolean create) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long[] getInstanceHashCodes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addInstance(Object instance) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ITestNGMethod[] getTestMethods() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ITestNGMethod[] getBeforeTestMethods() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ITestNGMethod[] getAfterTestMethods() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ITestNGMethod[] getBeforeClassMethods() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ITestNGMethod[] getAfterClassMethods() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ITestNGMethod[] getBeforeSuiteMethods() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ITestNGMethod[] getAfterSuiteMethods() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ITestNGMethod[] getBeforeTestConfigurationMethods() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ITestNGMethod[] getAfterTestConfigurationMethods() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ITestNGMethod[] getBeforeGroupsMethods() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ITestNGMethod[] getAfterGroupsMethods() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

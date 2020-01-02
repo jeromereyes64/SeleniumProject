@@ -1,0 +1,18 @@
+package AutoIT;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class GetElementsAutoIT {
+	
+	public void setup(){
+		WebDriver driver = new ChromeDriver();
+		WebElement element;
+		driver.get("https://tus.io/demo.html");
+		driver.findElement(By.xpath("/html/body/div/div[3]/div/p[3]/input")).click();
+		Runtime.getRuntime().exec("D:/Selenium/upload.exe");
+	}
+	
+}

@@ -1,0 +1,67 @@
+package utils;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+
+public class ExcelTestData {
+	private static POIFSFileSystem fs;
+	private static HSSFWorkbook workbook;
+	private static HSSFSheet sheet;
+
+	public ExcelTestData(String fileLocation, String sheetName) throws FileNotFoundException, IOException{
+		fs = new POIFSFileSystem(new FileInputStream(fileLocation));	
+		workbook = new HSSFWorkbook(fs);
+		sheet = workbook.getSheet(sheetName);
+	}
+
+	public static void main(String[] args) {
+		try {
+			ExcelTestData testdata = new ExcelTestData("excel/testData.xls", "sheet1");
+			testdata.getRowCount();
+			testdata.getColCount(1);
+			testdata.getCellData(0, 1);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public int getRowCount(){
+		int rowcount = 0;
+		try {
+			rowCount = sheet.getPhysicalNumberOfRows();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			System.out.println(e.getCause() + e.getMessage());
+		}
+		return rowcount;		
+	}
+
+	public void getColCount(int rowNum){
+		try {
+			int colCount = sheet.getRow(rowNum).getPhysicalNumberOfCells();
+			System.out.println(colCount);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			synchronized (e.getCause() + e.getMessage()) {
+			}
+		}
+	}
+
+	public void getCellData(int rowCount, int cellCount){
+		try {
+			System.out.println(sheet.getRow(rowCount).getCell(cellCount).getStringCellValue());
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			System.out.println(e.getCause() + e.getMessage());
+		}		
+	}
+
+}

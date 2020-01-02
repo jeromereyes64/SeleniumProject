@@ -1,0 +1,14 @@
+package utils;
+
+import org.openqa.selenium.WebDriver;
+
+public class GetScreenShot {
+	
+	public String GetScreenShot(WebDriver driver, String fileName) {
+		
+		
+		return null;
+		
+	}
+	
+}

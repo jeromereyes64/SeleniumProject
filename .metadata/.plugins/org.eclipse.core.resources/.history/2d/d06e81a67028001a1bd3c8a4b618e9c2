@@ -1,0 +1,38 @@
+package utils;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.testng.annotations.DataProvider;
+
+public class ExcelDataProvider {
+	
+	/*public static void main(String[] args) throws FileNotFoundException, IOException {
+		Object data[][] = dataProvider("excel/testData.xls","Sheet1");
+	}*/
+	
+	public 
+	
+	@DataProvider(name="setData")
+	public Object[][] data(){
+		Object data[][] = dataProvider("excel/testData.xls", "sheet1");
+		return data;
+	}
+	
+	public static Object[][] dataProvider(String fLocation, String sName) throws FileNotFoundException, IOException{
+		ExcelTestData testData = new ExcelTestData(fLocation, sName);
+		int rowCount = testData.getRowCount();
+		int colCount = testData.getColCount(0);
+		Object cellData[][] = new Object[rowCount - 1][colCount];
+		
+		for (int row = 1; row < rowCount; row++) {
+			for (int col = 0; col < colCount ; col++) {
+				String cellData1 =  testData.getCellData(row, col);
+				//ystem.out.print(cellData1 + " ");
+				cellData[row-1][col] = cellData1;	
+			}
+			System.out.println();
+		}
+		return cellData;
+	}	
+}

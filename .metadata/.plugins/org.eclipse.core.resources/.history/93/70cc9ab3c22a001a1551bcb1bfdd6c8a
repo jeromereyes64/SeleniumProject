@@ -1,0 +1,88 @@
+package TestElements;
+import org.testng.annotations.AfterClass;
+import org.junit.runners.Parameterized.Parameters;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import utils.ExcelDataProvider;
+import GetElements.GetElements;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.gherkin.model.And;
+import com.aventstack.extentreports.gherkin.model.Feature;
+import com.aventstack.extentreports.gherkin.model.Given;
+import com.aventstack.extentreports.gherkin.model.When;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
+public class TestElements {
+	private static WebDriver driver;
+	private static ExtentReports extent; 
+	private static ExtentHtmlReporter htmlReport;
+	private static ExtentTest test;
+	private static ExtentTest bddTest;
+	
+	@DataProvider(name="setData")
+	public Object[][] getData(){
+		ExcelDataProvider dataProvider = new ExcelDataProvider();
+		return dataProvider.setData("excel/testData.xls","sheet1");
+	}
+	
+	
+	@BeforeClass
+	public static void Setup(){	
+		driver = new ChromeDriver();
+		extent = new ExtentReports();
+		htmlReport = new ExtentHtmlReporter("report.html");
+		extent.attachReporter(htmlReport);
+		test = extent.createTest(Feature.class, "BDD Testing - Search Page");
+	}
+	
+	@Test(priority = 1, groups = {"regression"}, dataProvider="setData")
+	public void TestCase_1(String userName, String passWord){
+		GetElements getElements = new GetElements(driver);
+		driver.get("https://www.phptravels.net/admin");
+		try {
+			bddTest = test.createNode(Given.class, "User was redirected in demoSite.com").pass("");
+
+			getElements.UsernameField(userName);
+			bddTest.createNode(And.class, "User input valid data in Username Field").pass("");
+
+			getElements.PasswordField(passWord);
+			bddTest.createNode(And.class, "User input valid data in Password Field").pass("");
+
+			getElements.checkBoxButton();
+			bddTest.createNode(And.class,"User click the checkbox").pass("");
+			
+			getElements.LoginButton();
+			;bddTest.createNode(When.class, "User clicked the Login Button");
+			Thread.sleep(5000);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getCause() + e.getMessage());
+		}
+	}
+/*	
+	@Test(priority = 3, groups = {"regression"})
+	public void TestCase_2(){
+		System.out.println("testcase_2 sussess");
+	}
+	
+	@Test(priority = 2, groups = {"regression"})
+	public void TestCase_3(){
+		System.out.println("testcase_3 sussess");
+	}
+	*/
+	
+	@AfterClass
+	public static void quitBrowser(){
+		driver.quit();
+		System.out.println("Test Case Successful");
+		extent.flush();
+	}
+}

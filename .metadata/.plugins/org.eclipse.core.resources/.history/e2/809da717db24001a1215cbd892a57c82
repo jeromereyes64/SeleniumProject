@@ -1,0 +1,12 @@
+package selenium;
+
+public class seleniumPractice {
+	public static void main(String[] args) {
+		//String projectPath = System.getProperty("user.dir");
+		//System.setProperty("webdriver.chrome.driver", projectPath + "\\chromedriver.exe");
+		elementPaths ePath = new elementPaths();
+		ePath.openBrowser();
+		ePath.searchBox.sendKeys("jerome Pogi");
+		ePath.searchButton.click();
+	}
+}

@@ -1,0 +1,8 @@
+GetElements\GetElements.class
+TestElements\TestElements.class
+utils\WaitTime.class
+SeleniumJavaFramework\SeleniumJavaFramework\AppTest.class
+utils\GetScreenShot.class
+AutoIT\GetElementsAutoIT.class
+utils\ExcelTestData.class
+utils\ExcelDataProvider.class

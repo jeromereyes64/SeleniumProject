@@ -1,0 +1,28 @@
+package GetElements;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+
+import TestElements.TestElements;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+
+public class GetElements {
+	WebDriver driver;
+	By userNameTextField = By.id("name");
+	By passwordTextField = By.id("password");
+
+	public GetElements(WebDriver driver){
+		this.driver = driver;
+	}
+
+	public void UsernameField(String Username){
+		driver.findElement(userNameTextField).sendKeys(Username);
+	}
+
+	public void PasswordField(String Password) {
+		driver.findElement(passwordTextField).sendKeys(Password);
+	}
+}

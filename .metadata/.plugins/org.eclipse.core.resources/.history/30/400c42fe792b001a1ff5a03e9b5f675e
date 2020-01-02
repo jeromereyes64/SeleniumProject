@@ -1,0 +1,9 @@
+package utils;
+
+import GetElements.GetElements;
+
+public class WaitTime {
+
+	GetElements elements;
+	
+}

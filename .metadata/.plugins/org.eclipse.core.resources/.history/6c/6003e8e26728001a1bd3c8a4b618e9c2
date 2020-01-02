@@ -1,0 +1,23 @@
+package utils;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class ExcelDataProvider {
+	
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+		dataProvider("excel/testData.xls","Sheet1");
+	}
+	
+	public static void dataProvider(String fLocation, String sName) throws FileNotFoundException, IOException{
+		ExcelTestData testData = new ExcelTestData(fLocation, sName);
+		int rowCount = testData.getRowCount();
+		int colCount = testData.getColCount(0);
+		System.out.println(rowCount + ", " + colCount);
+		for (int row = 1; row < rowCount; row++) {
+			for (int col = 0; col < colCount ; col++) {
+				testData.getCellData(row, col);
+			}
+		}
+	}	
+}

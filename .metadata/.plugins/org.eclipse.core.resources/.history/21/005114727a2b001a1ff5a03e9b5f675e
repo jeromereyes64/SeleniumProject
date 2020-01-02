@@ -1,0 +1,18 @@
+package utils;
+
+import org.openqa.selenium.WebDriver;
+
+import GetElements.GetElements;
+
+public class WaitTime extends GetElements{
+	//Webdriver driver;
+	public WaitTime(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+	//GetElements elements = new GetElements(driver);
+	public void threadSleep(int milliseconds) throws InterruptedException{
+		Thread.sleep(milliseconds);
+	}
+	
+}

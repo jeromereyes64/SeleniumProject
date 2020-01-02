@@ -1,0 +1,17 @@
+package utils;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
+public class ExcelTestData {
+
+	public static void main(String[] args) {
+		try {
+		HSSFWorkbook workbook = new HSSFWorkbook("testData.xlsx");
+		HSSFSheet sheet = workbook.getSheet("Sheet1");
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+}

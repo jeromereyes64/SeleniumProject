@@ -1,0 +1,29 @@
+package utils;
+import java.io.FileInputStream;
+
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+
+public class ExcelTestData {
+
+	public static void main(String[] args) {
+
+	}
+
+	public static void getRowCount(){
+		try {
+			POIFSFileSystem fs = new POIFSFileSystem(new FileInputStream("excel/testData.xls"));	
+			HSSFWorkbook workbook = new HSSFWorkbook(fs);
+
+			HSSFSheet sheet = workbook.getSheet("Sheet1");
+			System.out.println(sheet.getPhysicalNumberOfRows(););
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			System.out.println(e.getCause() + e.getMessage());
+		}		
+	}
+
+
+}

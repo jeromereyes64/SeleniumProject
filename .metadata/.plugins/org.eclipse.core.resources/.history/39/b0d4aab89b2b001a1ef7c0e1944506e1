@@ -1,0 +1,25 @@
+package AutoIT;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class GetElementsAutoIT {
+	
+	@Test
+	public void setup(){
+		try {
+			WebDriver driver = new ChromeDriver();
+			driver.get("http://www.tinyupload.com");
+			Thread.sleep(500);
+			driver.findElement(By.name("uploaded_file")).click();
+			driver.close();
+			driver.quit();
+			//Runtime.getRuntime().exec("D:/Selenium/upload.exe");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage() + e.getCause());
+		}
+	}
+}

@@ -1,0 +1,27 @@
+package utils;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class ExcelDataProvider {
+	
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+		dataProvider("excel/testData.xls","Sheet1");
+	}
+	
+	public static void dataProvider(String fLocation, String sName) throws FileNotFoundException, IOException{
+		ExcelTestData testData = new ExcelTestData(fLocation, sName);
+		int rowCount = testData.getRowCount();
+		int colCount = testData.getColCount(0);
+		
+		Object cellData[][] = new Object[rowCount - 1][colCount];
+		for (int row = 1; row < rowCount; row++) {
+			for (int col = 0; col < colCount ; col++) {
+				String cellData1 =  testData.getCellData(row - 1, col);
+				cellData[row-1][col] = cellData1;
+				System.out.print(cellData1);
+			}
+			System.out.println();
+		}
+	}	
+}

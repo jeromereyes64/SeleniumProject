@@ -1,0 +1,40 @@
+package GetElements;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+
+import TestElements.TestElements;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+
+public class GetElements {
+	private static ExtentTest test;
+	WebDriver driver;
+	By searchboxField = By.id("search");
+	By searchButton = By.id("search-icon-legacy");
+	
+	public GetElements(WebDriver driver){
+		this.driver = driver;
+	}
+	
+	public void typeSearchBox(String message){
+		driver.findElement(searchboxField).sendKeys(message);
+	}
+	
+	public void clickSearchButton() {
+		driver.findElement(searchButton).click();
+	}
+	
+	public static ExtentTest getTest() {
+		return test;
+	}
+
+	public static void setTest(ExtentTest test) {
+		TestElements.test = test;
+	}
+	
+	//ExtentTest test = extent.createTest(testName, description);	
+	
+}

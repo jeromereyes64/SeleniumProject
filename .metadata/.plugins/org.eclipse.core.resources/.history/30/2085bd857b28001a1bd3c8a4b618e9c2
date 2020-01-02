@@ -1,0 +1,39 @@
+package GetElements;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+
+import TestElements.TestElements;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+
+public class GetElements {
+	WebDriver driver;
+	By userNameTextField = By.name("email");
+	By passwordTextField = By.name("password");
+	By checkBox = By.xpath("/html/body/div[2]/form[1]/div[1]/div/div[1]/label/div/ins");
+	By loginButton = By.xpath("/html/body/div[2]/form[1]/button");
+		
+	public GetElements(WebDriver driver){
+		this.driver = driver;
+	}
+
+	public void UsernameField(String Username){
+		driver.findElement(userNameTextField).sendKeys(Username);
+	}
+
+	public void PasswordField(String Password) {
+		driver.findElement(passwordTextField).sendKeys(Password);
+	}
+	
+	public void checkBoxButton(){
+		driver.findElement(checkBox).click();
+	}
+	
+	public void LoginButton(){
+		driver.findElement(loginButton).click();
+	}
+	
+}
